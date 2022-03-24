@@ -8,7 +8,7 @@ const helmet = require('helmet');
 const path = require('path');
 const routeProducts = require('./routes/routes');
 
-var whitelist = ['http://localhost:3000', 'http://localhost:5000',]
+var whitelist = ['http://localhost:3000', 'http://localhost:5000', 'http://localhost:8080', 'http://localhost:8081']
 var corsOptions = {
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1) {
@@ -18,7 +18,7 @@ var corsOptions = {
       }
     }
 }
-
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express_sanitizer());
