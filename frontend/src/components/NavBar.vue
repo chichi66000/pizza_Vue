@@ -11,34 +11,34 @@
       </button>
       <ul class="bg-green-500 col-span-11 col-start-8 place-content-center sm:col-start-2 flex flex-wrap flex-col sm:flex-row mx-auto justify-between sm:inline-flex w-40 sm:w-full p-2 mb-2 rounded-md" :class="[isOpen ? 'block ' : 'hidden sm:block']">
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <NuxtLink to="/">
+          <router-link to="/">
             Menu & Promo
-          </NuxtLink>
+          </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <NuxtLink to="/">
+          <router-link to="/">
             Entrées
-          </NuxtLink>
+          </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <NuxtLink to="/">
+          <router-link to="/">
             Pizzas
-          </NuxtLink>
+          </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <NuxtLink to="/">
+          <router-link to="/">
             Desserts
-          </NuxtLink>
+          </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <NuxtLink to="/">
+          <router-link to="/">
             Boissons
-          </NuxtLink>
+          </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <NuxtLink to="/">
+          <router-link to="/">
             Contact
-          </NuxtLink>
+          </router-link>
         </li>
       </ul>
     </nav>
