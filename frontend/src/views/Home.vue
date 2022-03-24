@@ -40,7 +40,7 @@
 // import Panier from '../components/Panier.vue'
 // import MenuPromo from '../components/MenuPromo.vue'
 // import axiosInstance from '../../axios'
-
+import { mapActions } from 'vuex'
 export default {
   name: 'Home',
   data () {
@@ -56,6 +56,7 @@ export default {
     //     console.log("this ", this.pizza);     // OK
     //   })
     this.$store.dispatch('getListPizzas');
+    
   }
 }
 </script>

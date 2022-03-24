@@ -1,11 +1,13 @@
 const entrées = [
   {
+    "id": "entree_1",
     "name": "Salade César",
     "prix": 7,
     "ingrédients": "salade verte, tomate, filet de poulet, oignon rouge, Parmigiano, sauce césar",
     "imgSrc": "https://recette.supertoinette.com/151436/m/salade-cesar.jpg"
   },
   {
+    "id": "entree_2",
     "name": "Salade Méditérranénne",
     "prix": 6.5,
     "ingrédients": "salade verte, tomate, oignon rouge, poivron, olives, Parmigiano",
@@ -13,6 +15,7 @@ const entrées = [
 
   },
   {
+    "id": "entree_3",
     "name": "Salade Niçois",
     "prix": 7,
     "ingrédients": "salade verte, tomate, oignon rouge, anchois, olives, oeuf",
