@@ -21,7 +21,26 @@ const routes = [
     name: 'Pizza',
     component: () => import(/* webpackChunkName: "about" */ '../views/Pizza.vue')
   },
-
+  {
+    path: '/boissons',
+    name: 'Boissons',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Boissons.vue')
+  },
+  {
+    path: '/desserts',
+    name: 'Desserts',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Desserts.vue')
+  },
+  {
+    path: '/entrees',
+    name: 'Entrees',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Entrees.vue')
+  },
+  {
+    path: '/promo',
+    name: 'Promo',
+    component: () => import(/* webpackChunkName: "about" */ '../views/MenuPromo.vue')
+  }
 ]
 
 const router = createRouter({

@@ -11,33 +11,33 @@
       </button>
       <ul class="bg-green-500 col-span-8 sm:col-span-11 col-start-6 sm:col-start-2 place-content-center  flex flex-wrap flex-col sm:flex-row mx-auto justify-between sm:inline-flex w-32 sm:w-full p-2 mb-2 rounded-md" :class="[isOpen ? 'block ' : 'hidden sm:block']">
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <router-link to="/">
+          <router-link to="/promo">
             Menu 
             <br>& Promo
           </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <router-link to="/">
+          <router-link to="/entrees">
             Entrées
           </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <router-link to="/">
+          <router-link to="/pizzas">
             Pizzas
           </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <router-link to="/">
+          <router-link to="/desserts">
             Desserts
           </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <router-link to="/">
+          <router-link to="/boissons">
             Boissons
           </router-link>
         </li>
         <li class="flex-1 hover:text-white focus:text-white text-md ">
-          <router-link to="/">
+          <router-link to="/contact">
             Contact
           </router-link>
         </li>

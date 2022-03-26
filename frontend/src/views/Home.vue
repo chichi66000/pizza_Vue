@@ -30,17 +30,14 @@
         Commander maintenant
       </router-link>
     </div>
-    <div v-for="pizza in pizzas" :key="pizza.name">
-      <li>{{pizza.name}}</li>
-    </div>
+    
   </div>
 </template>
 
 <script>
 // import Panier from '../components/Panier.vue'
 // import MenuPromo from '../components/MenuPromo.vue'
-// import axiosInstance from '../../axios'
-import { mapActions } from 'vuex'
+
 export default {
   name: 'Home',
   data () {
@@ -48,15 +45,6 @@ export default {
       pizzas: []
     }
   },
-  created () {
-    // axiosInstance
-    //   .get('/products/pizza')
-    //   .then(response => {
-    //     this.pizzas = response.data.pizzas
-    //     console.log("this ", this.pizza);     // OK
-    //   })
-    this.$store.dispatch('getListPizzas');
-    
-  }
+  
 }
 </script>

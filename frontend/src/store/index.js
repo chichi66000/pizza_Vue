@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import axiosInstance from '../../axios'
+// import axiosInstance from '../../axios'
 
 export default createStore({
   state: {
@@ -9,23 +9,38 @@ export default createStore({
     entrees: []
   },
   getters: {
+    listPizzas (state) {
+      return state.pizzas
+    }
 
   },
   mutations: {
     getPizzas (state, pizzas) {
-      state.pizzas += pizzas
+      state.pizzas = pizzas
+    },
+    getDrinks (state, drinks) {
+      state.boissons = drinks
+    },
+    getEntrees (state, entrees) {
+      state.entrees = entrees
+    },
+    getDesserts (state, desserts) {
+      state.desserts = desserts
     },
   },
   actions: {
-    getListPizzas ({commit}) {
-      axiosInstance
-      .get('/products/pizza')
-      .then(response => {
-        console.log("this pizz ", response.data.pizza);
-        commit('getPizzas', response.data.pizza);
-        // console.log("this ", this.pizza);     // OK
-      })
-    }
+    getListPizzas (context, pizzas) {
+      context.commit('getPizzas', pizzas)
+    },
+    getListDrinks (context, drinks) {
+      context.commit('getDrinks', drinks)
+    },
+    getListEntrees (context, entrees) {
+      context.commit('getEntrees', entrees)
+    },
+    getListDesserts (context, desserts) {
+      context.commit('getDesserts', desserts)
+    },
   },
   modules: {
   }
