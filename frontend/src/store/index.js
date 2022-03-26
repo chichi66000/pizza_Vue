@@ -11,8 +11,16 @@ export default createStore({
   getters: {
     listPizzas (state) {
       return state.pizzas
-    }
-
+    },
+    listBoissons (state) {
+      return state.boissons
+    },
+    listDesserts (state) {
+      return state.desserts
+    },
+    listEntrees (state) {
+      return state.entrees
+    },
   },
   mutations: {
     getPizzas (state, pizzas) {
