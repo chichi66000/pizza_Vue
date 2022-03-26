@@ -8,15 +8,19 @@
 </template>
 
 <script>
- import { mapGetters } from 'vuex'
+//  import { mapGetters } from 'vuex'
 
 export default {
   name: 'Pizza',
   data () {
-    // return { pizzas: []}
+    return { pizzas: []}
+  },
+  mounted(){
+    this.pizzas = this.$store.getters['listPizzas'];
+    console.log("tt ", this.pizzas);
   },
   computed : {
-    ...mapGetters('listPizzas')
+    // ...mapGetters({pizzas: 'listPizzas'})
   }
 }
 </script>
