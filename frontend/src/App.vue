@@ -18,7 +18,7 @@ export default {
     axiosInstance
       .get('/products/pizza')
       .then(response => {
-        console.log("this pizz ", response.data.pizzas);
+        // console.log("this pizz ", response.data.pizzas);
         // console.log("this ", this.pizza);     // OK
         this.$store.dispatch('getListPizzas', response.data.pizzas);
         this.$store.dispatch('getListDrinks', response.data.boissons);

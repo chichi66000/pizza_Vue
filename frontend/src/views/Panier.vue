@@ -1,6 +1,7 @@
 <template>
   <div>
     Panier
+    <li>jidfoisdl,dkvqksdfqkfk</li>
   </div>
 </template>
 

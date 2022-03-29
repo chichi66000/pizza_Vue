@@ -41,6 +41,9 @@
             Contact
           </router-link>
         </li>
+        <li class="flex-1 hover:text-white focus:text-white text-md  md:hidden">
+          <i class="fa-solid fa-cart-shopping "></i>
+        </li>
       </ul>
     </nav>
   </div>

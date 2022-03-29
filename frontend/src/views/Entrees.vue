@@ -17,7 +17,7 @@ export default {
 
   mounted(){
     this.entrees = this.$store.getters['listEntrees'];
-    console.log("dd ", this.entrees);
+    // console.log("dd ", this.entrees);
   },
 }
 </script>
