@@ -6,13 +6,13 @@
         <img class="w-full" :src="`${pizza.imgSrc}`" :alt="`pizza ${pizza.name}` " />
         <p class="text-sm">{{pizza.ingrédients}}</p>
         
-        <select @change="getValue($event, index)" @load="getValueDefault($event, index)" class="" >
+        <select @change="getValue($event, index)" v-model="price"  class="" >
           <option disabled selected>Choissiez la taille</option>
-          <option  v-for="(taille) in pizza.taille" :key="taille"  v-bind:value="taille" class="p-2">{{taille}} </option>
+          <option  v-for="(taille) in pizza.taille" :key="taille" v-bind:value="taille" class="p-2">{{taille}} </option>
         </select>
-        <button @click="addPizza()" class="btn rounded-md bg-green-500 p-2 text-center mx-auto flex flex-wrap justify-between">
+        <button @click="addPizzaToCart(index)" class="btn rounded-md bg-green-500 p-2 text-center mx-auto flex flex-wrap justify-between">
           <span>Ajouter</span>
-          <span :id="`prix_${pizza.id}`" class="ml-2"></span>
+          <span :id="`prix_${pizza.id}`"  class="ml-2"></span>
         </button>
       </li>
     </div>
@@ -33,7 +33,8 @@ export default {
   data () {
     return {
       // selected: "moyen",
-      // prix: 0
+      price: 0,
+      // taille: ""
     }
   },
   // created () {
@@ -63,7 +64,20 @@ export default {
       }
       // afficher le prix dans HTML
       prixSpan.innerHTML = this.prix
+      this.price = this.prix
     },
+
+    // addPizzaToCart(index)
+    async addPizzaToCart(index) {
+      console.log("pizza name ", `${this.pizzas[index].name}`);
+      console.log("this.price ", this.price);
+      let piz = {
+        'nom': `${this.pizzas[index].name}`, 
+        'prix': this.prix
+      }
+      this.$store.dispatch('getPrixPizza', piz)
+
+    }
   }
 }
 </script>

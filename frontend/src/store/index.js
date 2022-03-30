@@ -6,7 +6,17 @@ export default createStore({
     pizzas: [],
     desserts: [],
     boissons: [],
-    entrees: []
+    entrees: [],
+    commande: {
+      "pizza": [
+        {'nom': '',
+        'prix': 0
+        }
+      ],
+      "total": 0
+    }
+      
+    
   },
   getters: {
     listPizzas (state) {
@@ -22,6 +32,7 @@ export default createStore({
       return state.entrees
     },
   },
+
   mutations: {
     getPizzas (state, pizzas) {
       state.pizzas = pizzas
@@ -35,7 +46,11 @@ export default createStore({
     getDesserts (state, desserts) {
       state.desserts = desserts
     },
+    getPrixPizza (state, pizza) {
+      state.commande.pizza += pizza;
+    }
   },
+
   actions: {
     getListPizzas (context, pizzas) {
       context.commit('getPizzas', pizzas)
@@ -49,6 +64,9 @@ export default createStore({
     getListDesserts (context, desserts) {
       context.commit('getDesserts', desserts)
     },
+    getPrixPizza (context, pizza) {
+      context.commit('getPrixPizza', pizza)
+    }
   },
   modules: {
   }
