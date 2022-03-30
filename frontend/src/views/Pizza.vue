@@ -6,21 +6,14 @@
         <img class="w-full" :src="`${pizza.imgSrc}`" :alt="`pizza ${pizza.name}` " />
         <p class="text-sm">{{pizza.ingrédients}}</p>
         
-        <select @change="getValue($event, index)"  class="" >
+        <select @change="getValue($event, index)" @load="getValueDefault($event, index)" class="" >
+          <option disabled selected>Choissiez la taille</option>
           <option  v-for="(taille) in pizza.taille" :key="taille"  v-bind:value="taille" class="p-2">{{taille}} </option>
         </select>
         <button @click="addPizza()" class="btn rounded-md bg-green-500 p-2 text-center mx-auto flex flex-wrap justify-between">
           <span>Ajouter</span>
-          <span :id="`prix_${pizza.id}_${selected}`" class="ml-2"></span>
+          <span :id="`prix_${pizza.id}`" class="ml-2"></span>
         </button>
-
-        <!-- <select @change="getValue($event)" v-model="selected" class="">
-          <option v-for="prix in pizza.prix" :key="prix.prix" :value="prix.taille">{{prix.taille}}</option>
-        </select>
-        <button @click="addPizza()" class="btn rounded-md bg-green-500 p-2 text-center mx-auto flex flex-wrap justify-between">
-          <span>Ajouter</span>
-          <span v-for="prix in pizza.prix" :key="prix.prix" :value="prix.prix" class="">{{prix.prix}}</span>
-        </button> -->
       </li>
     </div>
 
@@ -43,6 +36,9 @@ export default {
       // prix: 0
     }
   },
+  // created () {
+  //   this.getValue()
+  // },
   // mounted(){
   //   // this.pizzas = this.$store.getters['listPizzas'];
   //   console.log("tt ", this.selectTaille);
@@ -51,28 +47,23 @@ export default {
     ...mapGetters({pizzas:'listPizzas'})
   },
   methods : {
-    changePrice (e) {
-      let price = e.target.value;
-      console.log("price ", price);
-    },
-    getValue (event, index) {
-       
-      console.log("index ", index);
-      // let index = e;
-      // console.log("selected ", this.selected);
-      console.log("pizzas ", this.pizzas);    //OK
+
+    // changer le prix selon la taille du pizza
+    async getValue (event, index) {
+      // console.log("pizzas ", this.pizzas);    //OK
       let taille = event.target.value;
-      console.log(taille);
-      let prixSpan = document.getElementById(`prix_${this.pizzas[index].id}_${this.selected}`)
+      let prixSpan = document.getElementById(`prix_${this.pizzas[index].id}`)
+      // afficher le prix selon la taille
       if (taille === "moyen") {
         this.prix = this.pizzas[index].prix[0]
-        console.log("prix ", this.prix);
+        // console.log("prix ", this.prix);    //OK
       }
       else {
         this.prix = this.pizzas[index].prix[1]
       }
+      // afficher le prix dans HTML
       prixSpan.innerHTML = this.prix
-    }
+    },
   }
 }
 </script>
