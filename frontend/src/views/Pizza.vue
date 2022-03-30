@@ -2,16 +2,25 @@
   <div class="container grid grid-cols-12 md:grid-cols-6 gap-2 my-2 relative">
     <!-- list des pizzas -->
     <div class="md:col-span-4 col-start-1 flex flex-row flex-wrap ">
-      <li class="border-1 rounded-md m-1 p-2 rounded-md mx-1 w-1/4 " v-for="pizza in pizzas" :key="pizza.id">
+      <li class="border-1 rounded-md m-1 p-2 rounded-md mx-1 w-1/4 " v-for="(pizza, index) in pizzas" :key="pizza.id">
         <img class="w-full" :src="`${pizza.imgSrc}`" :alt="`pizza ${pizza.name}` " />
         <p class="text-sm">{{pizza.ingrédients}}</p>
-        <select v-model="pizza.taille" @change="changePrice(e)" class="" >
-          <option   v-for="(size, index) in pizza.taille" :key="`size_${index}`" :value="`${size}`" >{{size}}</option>
+        
+        <select @change="getValue($event, index)"  class="" >
+          <option  v-for="(taille) in pizza.taille" :key="taille"  v-bind:value="taille" class="p-2">{{taille}} </option>
         </select>
-        <button class="btn rounded-md bg-green-500 p-2 text-center mx-auto flex flex-wrap justify-between">
+        <button @click="addPizza()" class="btn rounded-md bg-green-500 p-2 text-center mx-auto flex flex-wrap justify-between">
           <span>Ajouter</span>
-          <span class="">{{pizza.prix}}</span>
+          <span :id="`prix_${pizza.id}_${selected}`" class="ml-2"></span>
         </button>
+
+        <!-- <select @change="getValue($event)" v-model="selected" class="">
+          <option v-for="prix in pizza.prix" :key="prix.prix" :value="prix.taille">{{prix.taille}}</option>
+        </select>
+        <button @click="addPizza()" class="btn rounded-md bg-green-500 p-2 text-center mx-auto flex flex-wrap justify-between">
+          <span>Ajouter</span>
+          <span v-for="prix in pizza.prix" :key="prix.prix" :value="prix.prix" class="">{{prix.prix}}</span>
+        </button> -->
       </li>
     </div>
 
@@ -30,7 +39,8 @@ export default {
   components: {Panier},
   data () {
     return {
-      // selectTaille: ''
+      // selected: "moyen",
+      // prix: 0
     }
   },
   // mounted(){
@@ -40,10 +50,28 @@ export default {
   computed : {
     ...mapGetters({pizzas:'listPizzas'})
   },
-  method : {
+  methods : {
     changePrice (e) {
       let price = e.target.value;
       console.log("price ", price);
+    },
+    getValue (event, index) {
+       
+      console.log("index ", index);
+      // let index = e;
+      // console.log("selected ", this.selected);
+      console.log("pizzas ", this.pizzas);    //OK
+      let taille = event.target.value;
+      console.log(taille);
+      let prixSpan = document.getElementById(`prix_${this.pizzas[index].id}_${this.selected}`)
+      if (taille === "moyen") {
+        this.prix = this.pizzas[index].prix[0]
+        console.log("prix ", this.prix);
+      }
+      else {
+        this.prix = this.pizzas[index].prix[1]
+      }
+      prixSpan.innerHTML = this.prix
     }
   }
 }
