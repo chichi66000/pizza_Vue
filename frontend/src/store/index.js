@@ -8,12 +8,8 @@ export default createStore({
     boissons: [],
     entrees: [],
     commande: {
-      "pizza": [
-        {'nom': '',
-        'prix': 0
-        }
-      ],
-      "total": 0
+      products: [],
+      total: 0
     }
       
     
@@ -31,6 +27,9 @@ export default createStore({
     listEntrees (state) {
       return state.entrees
     },
+    getPrixPizza (state) {
+      return state.commande.products
+    }
   },
 
   mutations: {
@@ -47,7 +46,7 @@ export default createStore({
       state.desserts = desserts
     },
     getPrixPizza (state, pizza) {
-      state.commande.pizza += pizza;
+      state.commande.products.push(pizza) ;
     }
   },
 

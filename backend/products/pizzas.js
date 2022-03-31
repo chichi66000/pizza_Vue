@@ -2,10 +2,6 @@ let pizzas = [
     {
         "id": "pizza_1",
         "name": "Margherita",
-        // "prix": [ {
-        //     "taille": "moyen", "value": 10.5
-        // }, 
-        //     {"taille": "grand", "value": 14.5}],
         "taille": [ "moyen", "grand"],
         "prix": [ 10.5, 14.5],
         "ingrédients": "sauce tomate, mozzarella, basilic",

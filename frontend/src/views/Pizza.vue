@@ -45,7 +45,7 @@ export default {
   //   console.log("tt ", this.selectTaille);
   // },
   computed : {
-    ...mapGetters({pizzas:'listPizzas'})
+    ...mapGetters({pizzas:'listPizzas', commande: 'getPrixPizza'})
   },
   methods : {
 
@@ -75,8 +75,9 @@ export default {
         'nom': `${this.pizzas[index].name}`, 
         'prix': this.prix
       }
+      console.log("piz ", piz);
       this.$store.dispatch('getPrixPizza', piz)
-
+      console.log("commande ", this.commande[0]);
     }
   }
 }
