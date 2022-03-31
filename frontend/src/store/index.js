@@ -47,6 +47,10 @@ export default createStore({
     },
     getPrixPizza (state, pizza) {
       state.commande.products.push(pizza) ;
+      
+    },
+    getPrixTotal (state, prix) {
+      state.commande.total += prix
     }
   },
 
@@ -65,6 +69,9 @@ export default createStore({
     },
     getPrixPizza (context, pizza) {
       context.commit('getPrixPizza', pizza)
+    },
+    getPrixTotal (context, prix) {
+      context.commit('getPrixTotal', prix)
     }
   },
   modules: {

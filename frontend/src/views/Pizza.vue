@@ -70,14 +70,15 @@ export default {
     // addPizzaToCart(index)
     async addPizzaToCart(index) {
       console.log("pizza name ", `${this.pizzas[index].name}`);
-      console.log("this.price ", this.price);
+      console.log("this.price ", this.prix);
       let piz = {
         'nom': `${this.pizzas[index].name}`, 
         'prix': this.prix
       }
       console.log("piz ", piz);
       this.$store.dispatch('getPrixPizza', piz)
-      console.log("commande ", this.commande[0]);
+      console.log("commande ", this.commande);
+      this.$store.dispatch('getPrixTotal', this.prix)
     }
   }
 }
